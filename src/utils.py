@@ -78,7 +78,7 @@ def get_connection_section_freqs(connection, concept_page):
     _title = title
     if not concept_page.section(title):
       _title += 'Edit'  # Handle pages with unverified information
-    if concept_page.section(_title) and connection in concept_page.section(_title):
+    if concept_page.section(_title) and ' {} '.format(connection) in concept_page.section(_title).lower():
       concept_section_freqs[title] \
         += get_word_freqs(concept_page.section(_title))[connection]
   return concept_section_freqs
