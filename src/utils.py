@@ -57,7 +57,7 @@ def get_concept_page(i):
   while not is_valid:
     concept = input(ENTER_CONCEPT_MSG.format(Color.OKBLUE, i, Color.ENDC))
     try:
-      concept_page = page(concept)
+      concept_page = page(concept, auto_suggest=False)
       is_valid = True
     except DisambiguationError as e:
       print(DISAMBIGUATION_ERROR_MSG.format(Color.WARNING, concept, Color.ENDC))
